@@ -52,6 +52,7 @@
   --bad: #bf3329;  --bad-soft: #f8dedb;
   --run: #1d5cc0;  --run-soft: #dbe6fa;
   --k0: #0e6b5c; --k1: #2a62c9; --k2: #8a3fb8; --k3: #b86a00; --k4: #c23b6b; --k5: #4d5d66;
+  --free-fg: #7b2fae; --free-bg: #f1e4fa; --free-bd: #cfa8ea;
   --today: #063f36;
   --shadow: 0 1px 2px rgba(19,32,28,.06), 0 6px 18px rgba(19,32,28,.07);
   --font: "Vazirmatn", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
@@ -64,6 +65,7 @@
     --ok: #4cc983; --ok-soft: #12301f; --warn: #f0a640; --warn-soft: #382810;
     --bad: #f07368; --bad-soft: #3b1916; --run: #7ea9f5; --run-soft: #192a46;
     --k0: #45c2a8; --k1: #7ea6f5; --k2: #c08ae6; --k3: #f0aa4c; --k4: #f08bb0; --k5: #9fb0b8; --today: #8ff0d6;
+    --free-fg: #e2c2fb; --free-bg: #3d2558; --free-bd: #8a5cc0;
     --shadow: 0 1px 2px rgba(0,0,0,.45);
     color-scheme: dark;
   }
@@ -74,6 +76,7 @@
   --ok: #4cc983; --ok-soft: #12301f; --warn: #f0a640; --warn-soft: #382810;
   --bad: #f07368; --bad-soft: #3b1916; --run: #7ea9f5; --run-soft: #192a46;
   --k0: #45c2a8; --k1: #7ea6f5; --k2: #c08ae6; --k3: #f0aa4c; --k4: #f08bb0; --k5: #9fb0b8; --today: #8ff0d6;
+  --free-fg: #e2c2fb; --free-bg: #3d2558; --free-bd: #8a5cc0;
   --shadow: 0 1px 2px rgba(0,0,0,.45);
   color-scheme: dark;
 }
@@ -181,7 +184,7 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 .tag.run { background: var(--run-soft); color: var(--run); }
 .tag.warn { background: var(--warn-soft); color: var(--warn); }
 .tag.ok { background: var(--ok-soft); color: var(--ok); }
-.tag.free { background: color-mix(in srgb, var(--k2) 16%, var(--surface)); color: var(--k2); }
+.tag.free { background: var(--free-bg); color: var(--free-fg); box-shadow: inset 0 0 0 1px var(--free-bd); }
 .pips { display: flex; gap: 3px; margin-top: 5px; flex-wrap: wrap; }
 .pips b { width: 12px; height: 6px; border-radius: 3px; background: var(--k, var(--brand)); }
 .pips b.used { background: var(--line); }
@@ -214,7 +217,7 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 .rules-strip { display: flex; align-items: center; gap: 10px; padding: 11px 14px; font-size: 13px; }
 .rules-strip .ico { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--sunk); color: var(--fg2); flex: none; }
 .rules-strip .ico svg { width: 19px; height: 19px; }
-.rules-strip.quiet .ico { background: color-mix(in srgb, var(--k2) 16%, var(--surface)); color: var(--k2); }
+.rules-strip.quiet .ico { background: var(--free-bg); color: var(--free-fg); }
 .rules-strip b { display: block; font-size: 14px; }
 .rules-strip span { color: var(--fg2); font-size: 12px; }
 .days { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: 6px; }
@@ -229,9 +232,9 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 .rule:last-child { border-bottom: 0; }
 .rule .sw-txt b { display: block; font-size: 14px; }
 .rule .sw-txt span { font-size: 12px; color: var(--fg2); }
-.exc { border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 10px; background: color-mix(in srgb, var(--k2) 10%, var(--surface)); border: 1px solid color-mix(in srgb, var(--k2) 30%, var(--surface)); }
+.exc { border-radius: 14px; padding: 12px; display: flex; flex-direction: column; gap: 10px; background: var(--free-bg); border: 1px solid var(--free-bd); }
 .exc .on { display: flex; align-items: center; gap: 10px; }
-.exc .on b { color: var(--k2); }
+.exc .on b { color: var(--free-fg); }
 .exc .on .sp { flex: 1; }
 .checks { display: flex; gap: 14px; flex-wrap: wrap; font-size: 14px; }
 .checks label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
@@ -487,6 +490,16 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
         <label class="switch" style="flex:none"><input type="checkbox" id="gWifiWash" aria-label="وای‌فای موقع شستشو"></label>
       </div>
       <div class="act">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 11l3 2 5-5"/></svg></div>
+        <div class="txt"><b>چک صفحه‌ی سفید</b><span id="lcdChkHint"></span></div>
+        <label class="switch" style="flex:none"><input type="checkbox" id="gLcdCheck" aria-label="چک صفحه‌ی سفید"></label>
+      </div>
+      <div class="act">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div>
+        <div class="txt"><b>عیب‌یابی (DIAG)</b><span id="diagHint"></span></div>
+        <label class="switch" style="flex:none"><input type="checkbox" id="gDiag" aria-label="عیب‌یابی"></label>
+      </div>
+      <div class="act">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 7.9z"/></svg></div>
         <div class="txt"><b>دسترسی از بیرون خونه</b><span id="remoteHint"></span></div>
         <button class="btn" id="srvForget" type="button" hidden>خروج</button>
@@ -728,6 +741,17 @@ const T_EXACT = {
   "رمز سرور از این گوشی پاک بشه؟": "Remove the server password from this phone?",
   "دفعه‌ی بعد باید دوباره واردش کنی": "You will have to enter it again next time",
   "پاک کن": "Remove",
+  "چک صفحه‌ی سفید": "White-screen check",
+  "روشن: هر ۱۰ ثانیه صفحه رو چک می‌کنه": "On: the screen is checked every 10 seconds",
+  "خاموش: صفحه چک نمی‌شه": "Off: the screen is not checked",
+  "عیب‌یابی (DIAG)": "Diagnostics (DIAG)",
+  "عیب‌یابی": "Diagnostics",
+  "روشن: گزارش ۸ ساعته و پیام‌های تستی": "On: 8-hour report and test messages",
+  "خاموش: فقط پیام خرابی‌ها می‌آد": "Off: only fault messages are sent",
+  "چک صفحه‌ی سفید روشن شد": "White-screen check turned on",
+  "چک صفحه‌ی سفید خاموش شد": "White-screen check turned off",
+  "عیب‌یابی روشن شد": "Diagnostics turned on",
+  "عیب‌یابی خاموش شد؛ خرابی‌ها همچنان پیام می‌دن": "Diagnostics turned off; faults still send messages",
   "پنل لاندری تیمبر تری": "Timber Tree Laundry Panel",
   "لاندری تیمبر تری": "Timber Tree Laundry",
   "رمز رو بزن": "Enter your PIN",
@@ -1051,7 +1075,7 @@ const demo = (() => {
   }
   let running = { id: 0, since: t0 - 1260 };
   cards[1].except = { until: (Math.floor(t0 / 86400) + 4) * 86400 + 8 * 3600, days: false, quiet: true };
-  let learn = null, wifiWash = false;
+  let learn = null, wifiWash = false, lcdCheck = true, diag = true;
   const wait = ms => new Promise(r => setTimeout(r, ms));
   const used = id => { const m = mondayOf(nowSec()); return log.filter(w => w.id === id && mondayOf(w.start) === m).length; };
   const nextMonday = () => { const m = mondayOf(nowSec()) + 7; return m * 86400 + 60 - nowSec(); };
@@ -1061,7 +1085,7 @@ const demo = (() => {
     async status() {
       return { machine: running ? "running" : "idle", card: running ? running.id : -1,
                elapsed: running ? nowSec() - running.since : 0, lastEnd: log.reduce((a, w) => Math.max(a, w.end), 0),
-               reader: "ok", clockOk: true, clock: nowSec(), rssi: -62, version: "6.9", ota: true, wifiWash, remote: "on",
+               reader: "ok", clockOk: true, clock: nowSec(), rssi: -62, version: "7.0", ota: true, wifiWash, lcdCheck, diag, remote: "on",
                current: running ? 412 : 6, startAt: 50, finishAt: 20,
                uptime: 64980 + (nowSec() - t0), nextRefill: nextMonday() };
     },
@@ -1088,6 +1112,7 @@ const demo = (() => {
     async learnCancel() { learn = null; },
     async action(name) { await wait(500); if (name === "restart" && running) return false; return true; },
     async setWifiWash(on) { await wait(200); wifiWash = on; },
+    async setSwitches(o) { await wait(200); if ("lcdCheck" in o) lcdCheck = o.lcdCheck; if ("diag" in o) diag = o.diag; },
     // demo only: lets the reviewer see the idle look
     toggleMachine() { running = running ? null : { id: 1, since: nowSec() - 300 }; }
   };
@@ -1251,6 +1276,7 @@ const esp = {
     try { const r = await xfetch("/api/pin", { method: "POST", headers: { "X-Pin": p } }); return r.ok ? true : r.status === 429 ? "locked" : false; } catch { return false; }
   },
   setWifiWash(on) { return this.post("/api/wifi-wash", { on }); },
+  setSwitches(o) { return this.post("/api/switches", o); },
   async pinChange(o, n) { try { await this.post("/api/pin/change", { old: o, new: n }); return true; } catch { return false; } },
   status() { return this.get("/api/status"); },
   cards() { return this.get("/api/cards"); },
@@ -1357,13 +1383,18 @@ function renderStatus() {
   $("curVal").textContent = cur < 0 ? "—" : fa(cur);
   $("curHint").textContent = (run ? "الان، موقع شستشو" : "آخرین عدد شستشوی قبلی") +
     " · شروع بالای " + fa(s.startAt ?? 50) + "، پایان زیر " + fa(s.finishAt ?? 20);
-  $("verHint").textContent = "نسخه‌ی " + (EN ? String(s.version || "6.9") : String(s.version || "6.9").replace(/\d/g, d => fa(d)).replace(/\./g, "٫")) + " · " +
+  $("verHint").textContent = "نسخه‌ی " + (EN ? String(s.version || "7.0") : String(s.version || "7.0").replace(/\d/g, d => fa(d)).replace(/\./g, "٫")) + " · " +
     (s.ota ? "آپلود بی‌سیم آماده‌ست" : "آپلود بی‌سیم خاموشه (پارتیشن)");
   $("live").classList.remove("off"); $("live").querySelector("span").textContent = "وصل";
   $("offline").hidden = true;
   // v6.9
   $("gWifiWash").checked = !!s.wifiWash;
   $("wifiWashHint").textContent = s.wifiWash ? "روشن: موقع شستشو هم پنل کار می‌کنه" : "خاموش: موقع شستشو وای‌فای دستگاه خاموشه";
+  // v7: two switches (missing = on)
+  const lc = s.lcdCheck !== false, dg = s.diag !== false;
+  $("gLcdCheck").checked = lc; $("gDiag").checked = dg;
+  $("lcdChkHint").textContent = lc ? "روشن: هر ۱۰ ثانیه صفحه رو چک می‌کنه" : "خاموش: صفحه چک نمی‌شه";
+  $("diagHint").textContent = dg ? "روشن: گزارش ۸ ساعته و پیام‌های تستی" : "خاموش: فقط پیام خرابی‌ها می‌آد";
   $("remoteHint").textContent = s.remote === "on" ? "وصله؛ از هر جا می‌شه پنل رو باز کرد"
     : s.remote === "wait" ? "در حال وصل شدن به سرور" : "خاموشه (رمز سرور توی برنامه‌ی دستگاه نیست)";
 }
@@ -1746,6 +1777,14 @@ $("gWifiWash").onchange = async e => {
   try { await api.setWifiWash(on); S.status.wifiWash = on; renderStatus(); toast(on ? "وای‌فای موقع شستشو روشن می‌مونه" : "وای‌فای موقع شستشو خاموش می‌شه"); }
   catch { e.target.checked = !on; toast("ذخیره نشد", { bad: true }); }
 };
+// v7: LCD check + DIAG switches
+async function saveSwitch(el, key, msgOn, msgOff) {
+  const on = el.checked;
+  try { await api.setSwitches({ [key]: on }); S.status[key] = on; renderStatus(); toast(on ? msgOn : msgOff); }
+  catch { el.checked = !on; toast("ذخیره نشد", { bad: true }); }
+}
+$("gLcdCheck").onchange = e => saveSwitch(e.target, "lcdCheck", "چک صفحه‌ی سفید روشن شد", "چک صفحه‌ی سفید خاموش شد");
+$("gDiag").onchange = e => saveSwitch(e.target, "diag", "عیب‌یابی روشن شد", "عیب‌یابی خاموش شد؛ خرابی‌ها همچنان پیام می‌دن");
 $("srvForget").hidden = !REMOTE;
 $("srvForget").onclick = () => ask("رمز سرور از این گوشی پاک بشه؟", "دفعه‌ی بعد باید دوباره واردش کنی.", "پاک کن", () => {
   try { localStorage.removeItem("srvPass"); } catch {}
