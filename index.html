@@ -1,6 +1,6 @@
-<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>پنل لاندری تیمبر تری</title><link rel="manifest" href="/manifest.json"><link rel="icon" href="/icon.png"><link rel="apple-touch-icon" href="/icon.png"><meta name="mobile-web-app-capable" content="yes"><style>[hidden]{display:none!important}</style></head><body>
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>پنل لاندری تیمبر تری</title><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.png"><link rel="apple-touch-icon" href="icon.png"><meta name="mobile-web-app-capable" content="yes"><style>[hidden]{display:none!important}</style></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="theme-color" content="#0e6b5c">
+<meta name="theme-color" content="#07090d">
 <!--
   Timber Tree Laundry — phone panel (v6.7)
 
@@ -37,47 +37,26 @@
 /* Layout: phone app. Brand band holds the machine, then health, week summary, cards.
    Fixed bottom tabs; editing happens in bottom sheets. */
 :root {
-  --bg: #eef2f0;
-  --surface: #ffffff;
-  --sunk: #e4eae7;
-  --line: #d5ddd9;
-  --fg: #13201c;
-  --fg2: #5a6964;
-  --brand: #0e6b5c;
-  --brand-2: #0a5248;
-  --brand-ink: #ffffff;
-  --brand-soft: #d5ebe5;
-  --ok: #16804a;   --ok-soft: #dbf1e3;
-  --warn: #a35a00; --warn-soft: #fbecd4;
-  --bad: #bf3329;  --bad-soft: #f8dedb;
-  --run: #1d5cc0;  --run-soft: #dbe6fa;
-  --k0: #0e6b5c; --k1: #2a62c9; --k2: #8a3fb8; --k3: #b86a00; --k4: #c23b6b; --k5: #4d5d66;
-  --free-fg: #7b2fae; --free-bg: #f1e4fa; --free-bd: #cfa8ea;
-  --today: #063f36;
-  --shadow: 0 1px 2px rgba(19,32,28,.06), 0 6px 18px rgba(19,32,28,.07);
+  --bg: #07090d;
+  --surface: #0e1218;
+  --sunk: #151b24;
+  --line: #1d2530;
+  --fg: #eef1f6;
+  --fg2: #7b8594;
+  --brand: #ff9a1f;
+  --brand-2: #ff7a00;
+  --brand-ink: #1a0f00;
+  --brand-soft: rgba(255,154,31,.14);
+  --ok: #ff9a1f;   --ok-soft: rgba(255,154,31,.12);
+  --warn: #ffd23f; --warn-soft: rgba(255,210,63,.12);
+  --bad: #ff5a3c;  --bad-soft: rgba(255,90,60,.13);
+  --run: #ffb84d;  --run-soft: rgba(255,184,77,.14);
+  --k0: #ff9a1f; --k1: #ffb84d; --k2: #ff9a1f; --k3: #ffb84d; --k4: #ff7a00; --k5: #ffa84a;
+  --free-fg: #ffd9a0; --free-bg: rgba(255,154,31,.08); --free-bd: rgba(255,154,31,.4);
+  --today: #ffd18a;
+  --shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 8px 20px rgba(0,0,0,.45);
   --font: "Vazirmatn", "Noto Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
   --mono: ui-monospace, "Roboto Mono", Menlo, Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0c1412; --surface: #15201d; --sunk: #1c2926; --line: #293935;
-    --fg: #e5eeeb; --fg2: #94a6a0; --brand: #12705f; --brand-2: #0b4a40; --brand-ink: #ffffff; --brand-soft: #173a33;
-    --ok: #4cc983; --ok-soft: #12301f; --warn: #f0a640; --warn-soft: #382810;
-    --bad: #f07368; --bad-soft: #3b1916; --run: #7ea9f5; --run-soft: #192a46;
-    --k0: #45c2a8; --k1: #7ea6f5; --k2: #c08ae6; --k3: #f0aa4c; --k4: #f08bb0; --k5: #9fb0b8; --today: #8ff0d6;
-    --free-fg: #e2c2fb; --free-bg: #3d2558; --free-bd: #8a5cc0;
-    --shadow: 0 1px 2px rgba(0,0,0,.45);
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0c1412; --surface: #15201d; --sunk: #1c2926; --line: #293935;
-  --fg: #e5eeeb; --fg2: #94a6a0; --brand: #12705f; --brand-2: #0b4a40; --brand-ink: #ffffff; --brand-soft: #173a33;
-  --ok: #4cc983; --ok-soft: #12301f; --warn: #f0a640; --warn-soft: #382810;
-  --bad: #f07368; --bad-soft: #3b1916; --run: #7ea9f5; --run-soft: #192a46;
-  --k0: #45c2a8; --k1: #7ea6f5; --k2: #c08ae6; --k3: #f0aa4c; --k4: #f08bb0; --k5: #9fb0b8; --today: #8ff0d6;
-  --free-fg: #e2c2fb; --free-bg: #3d2558; --free-bd: #8a5cc0;
-  --shadow: 0 1px 2px rgba(0,0,0,.45);
   color-scheme: dark;
 }
 
@@ -378,6 +357,265 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 .toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
 .toast.bad { background: var(--bad); color: #fff; }
 .toast button { border: 0; border-radius: 99px; padding: 4px 12px; background: rgba(128,128,128,.25); color: inherit; font-weight: 700; cursor: pointer; }
+
+/* ===================== v8: black + orange look ===================== */
+body { background: var(--bg); }
+body::before { background: var(--bg); }
+body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(520px 320px at 50% -60px, rgba(255,154,31,.26), transparent 70%),
+  linear-gradient(rgba(255,154,31,.04) 1px, transparent 1px) 0 0/26px 26px,
+  linear-gradient(90deg, rgba(255,154,31,.04) 1px, transparent 1px) 0 0/26px 26px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 55%); mask-image: linear-gradient(180deg, #000, transparent 55%); }
+.num, .mono { font-variant-numeric: tabular-nums; }
+.band { background: none; color: var(--fg); padding-bottom: 6px; }
+.strip { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; font-size: 11px; color: var(--fg2); }
+.rc { display: flex; gap: 7px; align-items: center; }
+.rc b { color: #fff; font-size: 13px; letter-spacing: .06em; direction: ltr; unicode-bidi: isolate; font-family: var(--mono); }
+.live { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--brand); font-weight: 700; }
+.live svg { width: 66px; height: 20px; overflow: visible; }
+.live svg path { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.live .base { stroke: rgba(255,154,31,.25); }
+.live .pulse { stroke: var(--brand); stroke-dasharray: 24 100; stroke-dashoffset: 24; filter: drop-shadow(0 0 4px rgba(255,154,31,.95)); animation: hb 1.5s linear infinite; }
+@keyframes hb { to { stroke-dashoffset: -100; } }
+.live.beat .base { stroke: rgba(255,154,31,.7); }
+.live.off { color: var(--fg2); }
+.live.off .base { stroke: #3a4350; } .live.off .pulse { display: none; }
+.live i { display: none; }
+@media (prefers-reduced-motion: reduce) { .live .pulse { animation: none; stroke-dasharray: none; } }
+.bar { padding-block: 12px 6px; gap: 11px; }
+.logo { width: 40px; height: 40px; border-radius: 12px; flex: none; background: linear-gradient(135deg,#ffb84d,#ff7a00); display: grid; place-items: center; color: #07090d; font-weight: 900; font-size: 13px; box-shadow: 0 0 22px rgba(255,154,31,.55); }
+.bar h1 { font-size: 15px; }
+.bar .date { font-size: 11px; opacity: 1; color: var(--fg2); }
+.pill-l { background: var(--sunk); color: var(--fg2); font-size: 10px; }
+.mpill { display: flex; gap: 7px; align-items: center; font-size: 11px; font-weight: 700; padding: 6px 11px; border-radius: 99px; border: 1px solid var(--line); color: var(--fg2); background: var(--surface); white-space: nowrap; }
+.mpill i { width: 7px; height: 7px; border-radius: 50%; background: #3a4350; display: block; }
+.mpill.on { color: var(--brand); border-color: rgba(255,154,31,.5); background: rgba(255,154,31,.1); }
+.mpill.on i { background: var(--brand); box-shadow: 0 0 9px var(--brand); }
+
+.hero { display: block; border-radius: 24px; padding: 16px 16px 14px; position: relative; overflow: hidden; margin-top: 8px;
+  background: linear-gradient(160deg,#141a23,#0a0d12); border: 1px solid #2b2314; box-shadow: 0 20px 40px rgba(0,0,0,.6); }
+.hero::before { content: ""; position: absolute; inset: 0 0 auto; height: 2px; background: linear-gradient(90deg,transparent,var(--brand),transparent); }
+.hrow { display: flex; align-items: center; gap: 12px; }
+.dial { position: relative; width: 150px; height: 150px; flex: none; margin-inline-start: -6px; cursor: pointer; }
+.dial svg { width: 150px; height: 150px; display: block; }
+.dial .trk { stroke: #1b222c; fill: none; stroke-width: 4; }
+.dial .arc { stroke: var(--brand); fill: none; stroke-width: 4; stroke-linecap: round; filter: drop-shadow(0 0 5px rgba(255,154,31,.95)); transition: stroke-dasharray .8s ease; }
+.dial .head { fill: #fff; filter: drop-shadow(0 0 8px #ff9a1f); transition: opacity .3s; }
+.dial #ticks line { stroke: #252d39; stroke-width: 1.4; stroke-linecap: round; }
+.dial #ticks line.m { stroke-width: 2; }
+.dial #ticks line.on { stroke: var(--brand); filter: drop-shadow(0 0 3px rgba(255,154,31,.9)); }
+.dial .liq { transition: transform 1s ease; }
+.dial .wv { animation: wave 2.6s linear infinite; }
+.dial .wv.b { animation-duration: 3.8s; animation-direction: reverse; }
+@keyframes wave { to { transform: translateX(-92px); } }
+.dial .bub { fill: rgba(255,255,255,.5); opacity: 0; }
+.running .dial .bub { opacity: 1; animation: rise 3s ease-in infinite; }
+.running .dial .bub:nth-of-type(2) { animation-delay: 1s; } .running .dial .bub:nth-of-type(3) { animation-delay: 2s; }
+@keyframes rise { from { transform: translateY(0); opacity: .7; } to { transform: translateY(-40px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .dial .wv, .running .dial .bub { animation: none; } }
+.dial .c { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; pointer-events: none; }
+.dial .c b { font-size: 25px; font-family: var(--mono); direction: ltr; unicode-bidi: isolate; text-shadow: 0 2px 8px rgba(0,0,0,.85), 0 0 14px rgba(255,154,31,.8); letter-spacing: .02em; }
+.dial .c span { font-size: 9px; color: #ffe2b8; margin-top: 2px; text-shadow: 0 1px 4px rgba(0,0,0,.9); }
+.hero .info { min-width: 0; flex: 1; }
+.hero .lbl { font-size: 10px; color: var(--fg2); }
+.hero .state { font-size: 19px; font-weight: 800; color: var(--brand); white-space: nowrap; text-shadow: 0 0 20px rgba(255,154,31,.55); margin: 2px 0 6px; line-height: 1.4; }
+.hero .who { font-size: 12px; color: #c9d1dc; }
+.dclock { margin-top: 9px; display: flex; gap: 7px; align-items: center; font-size: 11px; color: var(--fg2); flex-wrap: wrap; }
+.dclock b { font-family: var(--mono); font-size: 15px; color: #fff; direction: ltr; unicode-bidi: isolate; letter-spacing: .04em; }
+.dclock em { font-style: normal; font-size: 10px; font-weight: 700; color: #1a0f00; background: var(--warn); border-radius: 6px; padding: 1px 7px; animation: blink 1.2s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: .45; } }
+.skew .dclock b { color: var(--warn); }
+.segs { display: flex; gap: 3px; margin-top: 14px; }
+.segs i { flex: 1; height: 7px; border-radius: 2px; background: #1b222c; transition: background .4s; }
+.segs i.on { background: linear-gradient(180deg,#ffb84d,#ff8a00); box-shadow: 0 0 8px rgba(255,154,31,.65); }
+.lastw { margin-top: 12px; padding-top: 11px; border-top: 1px dashed #28303c; display: flex; justify-content: space-between; gap: 8px; font-size: 11px; color: #aeb7c4; flex-wrap: wrap; }
+.lastw b { color: #fff; font-weight: 700; }
+
+.lift { margin-top: 0; }
+main { padding-top: 12px; }
+.h { color: var(--fg2); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+.actbtns { display: flex; gap: 10px; }
+.abtn { flex: 1; border-radius: 16px; padding: 12px; display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; cursor: pointer; border: 1px solid transparent; text-align: right; line-height: 1.35; min-width: 0; }
+.abtn .ic { width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center; flex: none; }
+.abtn .ic svg { width: 18px; height: 18px; }
+.abtn small { display: block; font-weight: 400; font-size: 10px; margin-top: 2px; }
+.abtn:disabled { opacity: .5; }
+.abtn.p { background: linear-gradient(135deg,#ffb84d,#ff7a00); color: #1a0f00; box-shadow: 0 8px 24px rgba(255,138,0,.34), inset 0 1px 0 rgba(255,255,255,.4); }
+.abtn.p .ic { background: rgba(0,0,0,.16); } .abtn.p small { color: rgba(26,15,0,.72); }
+.abtn.o { background: var(--surface); border-color: rgba(255,154,31,.45); color: var(--brand); }
+.abtn.o .ic { background: rgba(255,154,31,.12); } .abtn.o small { color: var(--fg2); }
+
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.tl { position: relative; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); padding: 10px 12px; min-width: 0; }
+.tl .k { font-size: 11px; color: var(--fg2); }
+.tl .v { font-size: 14px; font-weight: 700; margin-top: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tl .v .mono { direction: ltr; unicode-bidi: isolate; font-family: var(--mono); display: inline-block; }
+.tl .sb { font-size: 10px; color: var(--fg2); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ck { width: 19px; height: 19px; border-radius: 50%; display: grid; place-items: center; flex: none; background: linear-gradient(135deg,#ffb84d,#ff8a00); box-shadow: 0 0 12px rgba(255,154,31,.7); }
+.ck svg { width: 11px; height: 11px; }
+.ck.warn { background: linear-gradient(135deg,#ffe27a,#ffbf1f); box-shadow: 0 0 12px rgba(255,210,63,.6); }
+.ck.bad { background: linear-gradient(135deg,#ff8a70,#ff3d1f); box-shadow: 0 0 12px rgba(255,90,60,.65); }
+.tl .ck { position: absolute; left: 10px; top: 10px; }
+.tl.skew-w .v .mono { color: var(--warn); }
+.tl.clk { cursor: default; }
+.summ { font-size: 11px; font-weight: 400; }
+.summ.warn { color: var(--warn); } .summ.bad { color: var(--bad); } .summ.ok { color: var(--brand); }
+
+.curcard { padding: 13px 14px; }
+.curcard .top { display: flex; justify-content: space-between; align-items: center; }
+.curcard .lbl { font-size: 11px; color: var(--fg2); }
+.curcard .lv { color: var(--brand); font-family: var(--mono); font-size: 9px; margin-inline-start: 7px; }
+.curcard .lv i { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); box-shadow: 0 0 8px var(--brand); margin-inline-end: 4px; }
+.curcard .lv.idle { color: var(--fg2); } .curcard .lv.idle i { background: #3a4350; box-shadow: none; }
+.bigv { font-size: 30px; font-weight: 800; color: var(--brand); text-shadow: 0 0 18px rgba(255,154,31,.7); line-height: 1; direction: ltr; unicode-bidi: isolate; font-family: var(--mono); }
+.curcard svg { width: 100%; height: auto; margin-top: 8px; overflow: visible; display: block; }
+.curcard .ax { display: flex; justify-content: space-between; font-size: 9px; color: var(--fg2); margin-top: 3px; padding-inline-start: 36px; }
+.c4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 6px; margin-top: 10px; }
+.c4 div { background: #131922; border: 1px solid #1e2631; border-radius: 11px; padding: 7px 4px; text-align: center; }
+.c4 span { display: block; font-size: 9px; color: var(--fg2); } .c4 b { display: block; font-size: 15px; margin-top: 2px; font-family: var(--mono); direction: ltr; unicode-bidi: isolate; }
+.c4 .hl2 b { color: var(--brand); text-shadow: 0 0 12px rgba(255,154,31,.6); }
+
+.week .s + .s { border-right-color: var(--line); }
+.rules-strip.quiet .ico { background: var(--free-bg); color: var(--free-fg); }
+
+/* card rows with drops */
+.row { grid-template-columns: 44px minmax(0,1fr) auto 12px; }
+.badge { background: #151b24; border: 1px solid #28313f; color: var(--fg); border-radius: 12px; width: 44px; height: 44px; }
+.row.now .badge { border-color: var(--brand); color: var(--brand); box-shadow: 0 0 14px rgba(255,154,31,.45); }
+.row.now .badge::after { background: var(--brand); border-color: var(--surface); box-shadow: 0 0 8px var(--brand); }
+.row.off .badge { opacity: .6; }
+.drops { display: flex; gap: 3px; margin-top: 6px; flex-wrap: wrap; }
+.dr { width: 16px; height: 20px; display: block; }
+.dr.on { filter: drop-shadow(0 0 5px rgba(255,138,0,.75)); }
+.dr.ex { filter: drop-shadow(0 0 5px rgba(255,226,122,.8)); }
+.left .n { color: var(--brand); text-shadow: 0 0 12px rgba(255,154,31,.5); }
+.left.zero .n { color: var(--bad); text-shadow: none; }
+.tag.run { background: var(--run-soft); color: var(--run); }
+
+/* buttons, switches, lists */
+.btn { background: var(--sunk); color: var(--fg); border: 1px solid var(--line); }
+.btn.primary { background: linear-gradient(135deg,#ffb84d,#ff7a00); color: #1a0f00; border: 0; }
+.btn.free { background: var(--brand); color: #1a0f00; }
+.btn.solid-danger { background: var(--bad); color: #fff; border: 0; }
+.btn.danger { background: var(--bad-soft); color: var(--bad); border-color: rgba(255,90,60,.3); }
+.switch input:checked { background: var(--brand); }
+.switch input::after { background: #fff; }
+.act .ico { background: var(--sunk); }
+.act .ck { margin-inline-start: 2px; }
+.days button[aria-pressed="true"] { background: rgba(255,154,31,.16); border-color: var(--brand); color: var(--brand); }
+.checks input { accent-color: var(--brand); }
+.bars .b { background: linear-gradient(180deg,#ffb84d,#ff7a00); box-shadow: 0 0 8px rgba(255,138,0,.4); }
+.bars .b.zero { background: var(--line); box-shadow: none; }
+.bars .b.today { background: #fff; box-shadow: 0 0 10px rgba(255,255,255,.5); }
+.share .fill { background: linear-gradient(90deg,#ff7a00,#ffb84d); }
+.filter button[aria-pressed="true"] { background: rgba(255,154,31,.16); border-color: var(--brand); color: var(--brand); }
+.ring .fg { stroke: var(--brand); }
+.stepper button { background: var(--sunk); border: 1px solid var(--line); box-shadow: none; }
+.field input { background: var(--sunk); }
+.time select { background: var(--sunk); }
+
+/* tabs: four */
+.tabs { background: rgba(7,9,13,.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); grid-template-columns: repeat(4,1fr); }
+.tabs button[aria-current="page"] { color: var(--brand); }
+.tabs button[aria-current="page"] span.i { background: rgba(255,154,31,.14); box-shadow: 0 0 14px rgba(255,154,31,.25); }
+.tabs button span.i { width: 52px; }
+
+/* sheets, pin, toast */
+.scrim { background: rgba(0,0,0,.62); }
+.sheet { border-top: 1px solid #2b2314; }
+.pin { background: radial-gradient(520px 360px at 50% 0, rgba(255,154,31,.3), transparent 70%), #07090d; color: #fff; }
+.pin .logo { background: linear-gradient(135deg,#ffb84d,#ff7a00); color: #07090d; box-shadow: 0 0 30px rgba(255,154,31,.5); }
+.dots i { border-color: rgba(255,154,31,.7); } .dots i.on { background: var(--brand); box-shadow: 0 0 10px var(--brand); }
+.keys button { background: #151b24; border: 1px solid #232c38; }
+.keys button:active { background: rgba(255,154,31,.3); }
+.srv-box input { background: #151b24; color: #fff; }
+.toast { background: #eef1f6; color: #07090d; }
+.toast.bad { background: var(--bad); color: #fff; }
+
+/* demo bar */
+.demofab { position: fixed; z-index: 35; left: 12px; bottom: calc(82px + env(safe-area-inset-bottom, 0px)); width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,154,31,.5); background: #0e1218; color: var(--brand); font-size: 11px; font-weight: 800; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.6); }
+.demobar { position: fixed; z-index: 36; left: 12px; top: 108px; width: 220px; background: #0e1218; border: 1px solid rgba(255,154,31,.4); border-radius: 16px; padding: 10px; display: flex; flex-direction: column; gap: 6px; box-shadow: 0 10px 30px rgba(0,0,0,.7); }
+.demobar b { font-size: 11px; color: var(--fg2); padding: 0 2px 2px; }
+.demobar button { text-align: right; border: 1px solid var(--line); background: var(--sunk); border-radius: 10px; padding: 8px 10px; font-size: 12px; cursor: pointer; display: flex; justify-content: space-between; gap: 8px; }
+.demobar button em { font-style: normal; color: var(--brand); font-weight: 700; }
+
+#recentWash { overflow: hidden; }
+/* ===== v9 half ring ===== */
+.dial .trk { stroke: #1b222c; stroke-width: 8.5; stroke-linecap: round; fill: none; }
+.dial .arc { stroke: url(#og); stroke-width: 8.5; stroke-linecap: round; fill: none; filter: drop-shadow(0 0 3px rgba(255,138,0,.5)); transition: stroke-dasharray .8s ease; }
+.dial text { fill: #8e98a6; font-size: 8px; text-anchor: middle; font-family: var(--mono); }
+.dial .head, .dial .tail { display: none; }
+
+/* ===== v8d mix: water disc + thin ring ===== */
+.dial #ticks, .dial .tail, .dial .orb2, .dial .spin { display: none; }
+.dial .trk { stroke: #1b222c; stroke-width: 3.2; }
+.dial .arc { stroke-width: 3.6; filter: drop-shadow(0 0 3px rgba(255,138,0,.55)); }
+.dial .head { filter: drop-shadow(0 0 5px #ff9a1f); }
+.dial .c b { text-shadow: 0 2px 10px rgba(0,0,0,.95), 0 0 2px rgba(0,0,0,.8); }
+.dial .c span { color: #fff1dc; text-shadow: 0 1px 6px rgba(0,0,0,.95); }
+
+/* ===== v8b ===== */
+.live svg { width: 66px; height: 20px; }
+.live .base { stroke: rgba(255,154,31,.22) !important; }
+.live .pulse { stroke-dasharray: 34 200; stroke-dashoffset: 34; opacity: 0; animation: beat 2.8s cubic-bezier(.45,.05,.55,.95) infinite; }
+@keyframes beat { 0% { stroke-dashoffset: 34; opacity: 0; } 10% { opacity: 1; } 72% { opacity: 1; } 88% { stroke-dashoffset: -100; opacity: 0; } 100% { stroke-dashoffset: -100; opacity: 0; } }
+.live.off { color: #ff4a2e; }
+.live.off .base { stroke: rgba(255,74,46,.25) !important; }
+.live.off .pulse { display: block; stroke: #ff4a2e; filter: drop-shadow(0 0 4px rgba(255,74,46,.95)); }
+@media (prefers-reduced-motion: reduce) { .live .pulse { animation: none; opacity: 1; stroke-dasharray: none; } }
+
+.band:not(.running) .dial { opacity: .42; filter: saturate(.35); }
+.band:not(.running) .hero .state { color: #8e98a6; text-shadow: none; opacity: .75; }
+.band:not(.running) .hero .who, .band:not(.running) .hero .lbl { opacity: .6; }
+.band:not(.running) .segs { opacity: .45; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.chips span { font-size: 10px; color: var(--fg2); border: 1px solid #2a2418; background: rgba(255,154,31,.07); border-radius: 8px; padding: 2px 8px; }
+.chips b { color: var(--brand); font-family: var(--mono); }
+.dial .orb2 { fill: none; stroke: rgba(255,154,31,.35); stroke-width: 1.4; stroke-dasharray: 5 4; transform-origin: 80px 80px; }
+.running .dial .orb2 { animation: spin 26s linear infinite reverse; }
+.dial .tail { fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; opacity: .85; filter: drop-shadow(0 0 6px rgba(255,200,120,.95)); }
+.dial .spin { transform-origin: 80px 80px; }
+.dial .spin path { fill: none; stroke: rgba(255,255,255,.13); stroke-width: 6; stroke-linecap: round; }
+.running .dial .spin { animation: spin 9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.running .dial .bub:nth-of-type(4) { animation-delay: .5s; } .running .dial .bub:nth-of-type(5) { animation-delay: 1.5s; } .running .dial .bub:nth-of-type(6) { animation-delay: 2.5s; }
+.dial .c i { font-style: normal; font-size: 9.5px; font-weight: 800; color: var(--brand); border: 1px solid rgba(255,154,31,.5); background: rgba(255,154,31,.12); border-radius: 99px; padding: 0 8px; margin: 0 auto 3px; font-family: var(--mono); }
+@media (prefers-reduced-motion: reduce) { .running .dial .orb2, .running .dial .spin { animation: none; } }
+
+.badge.w { font-size: 12.5px; letter-spacing: -.2px; }
+.shead .badge.w { font-size: 12.5px; }
+
+/* log: space look */
+.chart { position: relative; overflow: hidden; padding-top: 22px;
+  background:
+   radial-gradient(260px 130px at 85% -10%, rgba(255,154,31,.2), transparent 70%),
+   radial-gradient(1.2px 1.2px at 12% 28%, rgba(255,255,255,.7), transparent 60%),
+   radial-gradient(1px 1px at 28% 68%, rgba(255,255,255,.5), transparent 60%),
+   radial-gradient(1.4px 1.4px at 46% 20%, rgba(255,255,255,.65), transparent 60%),
+   radial-gradient(1px 1px at 63% 58%, rgba(255,255,255,.45), transparent 60%),
+   radial-gradient(1.2px 1.2px at 78% 34%, rgba(255,255,255,.6), transparent 60%),
+   radial-gradient(1px 1px at 91% 74%, rgba(255,255,255,.5), transparent 60%),
+   radial-gradient(1px 1px at 6% 80%, rgba(255,255,255,.4), transparent 60%),
+   #0b0f15; }
+.bars { border-bottom: 1px solid rgba(255,154,31,.4); box-shadow: 0 10px 16px -12px rgba(255,154,31,.7); }
+.bars .b { position: relative; border-radius: 7px 7px 2px 2px; opacity: 1;
+  background: linear-gradient(180deg,#ffe2b0,#ff9a1f 38%,#ff5a00);
+  box-shadow: 0 0 10px rgba(255,138,0,.55), 0 0 24px rgba(255,138,0,.25); }
+.bars .b.zero { background: #1d2530; box-shadow: none; }
+.bars .b.today { background: linear-gradient(180deg,#fff,#ffe2b0 45%,#ffb04a); box-shadow: 0 0 14px rgba(255,255,255,.7), 0 0 30px rgba(255,154,31,.5); }
+.bars .b i { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-size: 8.5px; font-style: normal; color: #ffd9a0; margin-bottom: 4px; font-family: var(--mono); }
+.share { gap: 11px; }
+.share .track { height: 14px; border-radius: 7px; overflow: visible; position: relative; border: 1px solid #1e2631;
+  background: repeating-linear-gradient(90deg,#141b25 0 6px,#0f141c 6px 8px); }
+.share .fill { position: relative; border-radius: 7px; background: linear-gradient(90deg,#ffd9a0,#ff7a00 45%,#8a3000);
+  box-shadow: 0 0 14px rgba(255,138,0,.5); }
+.share .fill::before { content: ""; position: absolute; inset: 0; border-radius: 7px; background: linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent) no-repeat; background-size: 38% 100%; animation: sweep 3s linear infinite; mix-blend-mode: overlay; }
+.share .fill::after { content: ""; position: absolute; left: -5px; top: 50%; width: 12px; height: 12px; margin-top: -6px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px 3px rgba(255,154,31,.9); }
+@keyframes sweep { from { background-position: 140% 0; } to { background-position: -60% 0; } }
+@media (prefers-reduced-motion: reduce) { .share .fill::before { animation: none; } }
+
+#recentWash .wash:first-child { border-top: 0; }
 </style>
 
 <!-- ============ PIN ============ -->
@@ -407,54 +645,120 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 </div>
 
 <!-- ============ BAND ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd18a"/><stop offset=".55" stop-color="#ffa22e"/><stop offset="1" stop-color="#ff6200"/></linearGradient>
+  <linearGradient id="dgx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1b8"/><stop offset=".55" stop-color="#ffd23f"/><stop offset="1" stop-color="#ff9f1a"/></linearGradient>
+  <linearGradient id="lq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb84d" stop-opacity=".95"/><stop offset="1" stop-color="#ff5a00" stop-opacity=".78"/></linearGradient>
+  <linearGradient id="lq2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd08a" stop-opacity=".55"/><stop offset="1" stop-color="#ff7a00" stop-opacity=".35"/></linearGradient>
+  <radialGradient id="gl" cx=".38" cy=".28" r=".8"><stop offset="0" stop-color="#1b232f"/><stop offset="1" stop-color="#0a0d12"/></radialGradient>
+  <linearGradient id="ar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a1f" stop-opacity=".5"/><stop offset="1" stop-color="#ff9a1f" stop-opacity="0"/></linearGradient>
+  <clipPath id="pc"><circle cx="80" cy="80" r="52"/></clipPath>
+</defs></svg>
 <div class="band" id="band">
   <div class="wrap">
+    <div class="strip">
+      <div class="rc"><span>ساعت واقعی</span><b id="realClock">--:--:--</b></div>
+      <span class="live" id="live"><svg viewBox="0 0 100 20" preserveAspectRatio="none"><path class="base" pathLength="100" d="M0 10H30L35 10 39 2 45 18 51 6 55 10H100"/><path class="pulse" pathLength="100" d="M0 10H30L35 10 39 2 45 18 51 6 55 10H100"/></svg><span>وصل</span></span>
+    </div>
     <div class="bar">
-      <div>
+      <div class="logo" aria-hidden="true">TT</div>
+      <div style="min-width:0">
         <h1>لاندری تیمبر تری</h1>
         <div class="date" id="today"></div>
       </div>
       <div class="sp"></div>
-      <span class="pill-l" id="demoTag">داده‌ی نمونه</span>
-      <span class="live" id="live"><i></i><span>وصل</span></span>
+      <button class="pill-l" id="demoTag" type="button" style="border:1px solid rgba(255,154,31,.35);color:var(--brand);cursor:pointer">نمونه ▾</button>
+      <span class="mpill" id="mPill"><i></i><span id="mPillT"></span></span>
     </div>
     <div class="hero" id="hero">
-      <div class="dial" aria-hidden="true">
-        <svg viewBox="0 0 92 92"><circle class="trk" cx="46" cy="46" r="42" fill="none" stroke-width="5"/><circle class="arc" id="arc" cx="46" cy="46" r="42" fill="none" stroke-width="5" stroke-dasharray="264" stroke-dashoffset="264" transform="rotate(-90 46 46)"/></svg>
-        <div class="door"><div class="water"></div></div>
+      <div class="hrow">
+        <div class="dial" aria-hidden="true">
+          <svg viewBox="0 0 160 160">
+            <g id="ticks"></g>
+            <defs><linearGradient id="og" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc46b"/><stop offset="1" stop-color="#ff7a00"/></linearGradient></defs>
+            <circle class="trk" cx="80" cy="80" r="63" stroke-dasharray="264.3 396" transform="rotate(150 80 80)"/>
+            <circle class="arc" id="arc" cx="80" cy="80" r="63" stroke-dasharray="0 396" transform="rotate(150 80 80)"/>
+            <circle class="tail" id="tail" cx="80" cy="80" r="0"/>
+            <circle class="head" id="head" cx="80" cy="22" r="0" style="opacity:0"/>
+            <text class="e0" x="36" y="151">۰</text><text class="e1" id="estEnd" x="124" y="151">۷۵+</text>
+            <circle cx="80" cy="80" r="52" fill="url(#gl)" stroke="#2a3340" stroke-width="2.5"/>
+            <g clip-path="url(#pc)">
+              <g class="spin"><path d="M80 34Q106 58 80 80" /><path d="M80 34Q106 58 80 80" transform="rotate(120 80 80)"/><path d="M80 34Q106 58 80 80" transform="rotate(240 80 80)"/></g>
+              <g class="liq" id="liq" style="transform:translateY(140px)">
+                <g class="wv b"><path d="M-12 0 q23 -7 46 0 t46 0 t46 0 t46 0 t46 0 V120 H-12Z" fill="url(#lq2)"/></g>
+                <g class="wv"><path d="M-12 4 q23 8 46 0 t46 0 t46 0 t46 0 t46 0 V120 H-12Z" fill="url(#lq)"/></g>
+              </g>
+              <circle class="bub" cx="62" cy="120" r="2.4"/><circle class="bub" cx="94" cy="124" r="1.8"/><circle class="bub" cx="78" cy="122" r="2.8"/><circle class="bub" cx="70" cy="126" r="1.5"/><circle class="bub" cx="100" cy="118" r="2"/><circle class="bub" cx="86" cy="128" r="1.6"/>
+            </g>
+            <path d="M38 56 A46 46 0 0 1 66 34" stroke="rgba(255,255,255,.32)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="c"><i id="mPct"></i><b id="mTimer">—</b><span id="mTimerK"></span></div>
+        </div>
+        <div class="info">
+          <div class="lbl">وضعیت ماشین</div>
+          <div class="state" id="mState">…</div>
+          <div class="who" id="mWho"></div>
+          <div class="chips" id="hchips"></div>
+          <div class="dclock"><span>ساعت دستگاه</span><b id="devClock">--:--</b><em id="clockWarn" hidden>اختلاف دارد</em></div>
+        </div>
       </div>
-      <div style="min-width:0">
-        <div class="state" id="mState">…</div>
-        <div class="who" id="mWho"></div>
-        <div class="timer num" id="mTimer" hidden></div>
-      </div>
+      <div class="segs" id="segs"></div>
+      <div class="lastw" id="lastWash"></div>
     </div>
   </div>
 </div>
 
 <main class="wrap">
-  <!-- ===== Status page ===== -->
+  <!-- ===== Dashboard ===== -->
   <section class="page lift" id="p-home">
     <div class="offline" id="offline" hidden>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 8.5a15 15 0 0 1 20 0M5.5 12a10 10 0 0 1 13 0M9 15.5a5 5 0 0 1 6 0"/><line x1="3" y1="3" x2="21" y2="21"/></svg>
       <span><span id="offMsg">دستگاه جواب نمی‌ده. همون وای‌فای خونه‌ای؟</span> <span id="offWhen"></span></span>
     </div>
 
-    <div class="panel health" id="health"></div>
+    <div class="actbtns">
+      <button class="abtn p" data-action="telegram"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></svg></span><span style="min-width:0">وضعیت به تلگرام<small id="tgState">پیام سلامت دستگاه</small></span></button>
+      <button class="abtn o" data-action="new-report"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/></svg></span><span>گزارش تازه<small>از نو بفرست</small></span></button>
+    </div>
 
-    <div class="panel week" id="week"></div>
+    <div class="h">سلامت دستگاه <span class="summ" id="healthSum"></span></div>
+    <div class="tiles" id="health"></div>
+
+    <div class="panel curcard" id="curCard">
+      <div class="top"><span class="lbl">جریان ماشین <span class="lv" id="curLv"><i></i><span>زنده</span></span></span><span class="bigv" id="curBig">—</span></div>
+      <svg id="curSvg" viewBox="0 0 300 130"></svg>
+      <div class="ax"><span id="axR">الان</span><span id="axL"></span></div>
+      <div class="c4" id="curStats"></div>
+    </div>
 
     <div class="panel rules-strip" id="rulesStrip"></div>
 
     <div class="h">کردیت این هفته <span id="refillIn"></span></div>
     <div class="panel cards" id="homeCards"></div>
+
+    <div class="panel week" id="week"></div>
+
+    <div class="h">آخرین شستشوها <span><a href="#" id="allWashes" style="color:var(--brand);text-decoration:none">همه ›</a></span></div>
+    <div class="panel" id="recentWash"></div>
   </section>
 
-  <!-- ===== Cards page ===== -->
+  <!-- ===== Cards ===== -->
   <section class="page lift" id="p-cards" hidden>
     <div class="panel cards" id="cardList"></div>
+<div class="h">برای همه</div>
+    <div class="panel list">
+      <div class="act">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></svg></div>
+        <div class="txt"><b>شارژ دوباره‌ی همه</b><span>همه برمی‌گردن به سهم هفتگی‌شون</span></div>
+        <button class="btn" data-bulk="refill">انجام</button>
+      </div>
+    </div>
 
-    <div class="h">قوانین کلی <span>کارت مدیر همیشه آزاده</span></div>
+      </section>
+
+  <!-- ===== Settings ===== -->
+  <section class="page lift" id="p-settings" hidden>
+<div class="h">قوانین کلی <span>کارت مدیر همیشه آزاده</span></div>
     <div class="panel">
       <div class="rule">
         <label class="switch"><span class="sw-txt"><b>ساعت سکوت</b><span>توی این ساعت‌ها شستشوی جدید شروع نمی‌شه. شستشویی که شروع شده قطع نمی‌شه.</span></span><input type="checkbox" id="gQuiet"></label>
@@ -465,15 +769,6 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
       </div>
       <div class="rule">
         <label class="switch"><span class="sw-txt"><b>پس دادن کردیت بعد از قطع برق</b><span>اگه برق قبل از شروع شستشو قطع بشه، کردیت برمی‌گرده</span></span><input type="checkbox" id="gRefund"></label>
-      </div>
-    </div>
-
-    <div class="h">برای همه</div>
-    <div class="panel list">
-      <div class="act">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12a8 8 0 1 0 2.3-5.6M4 4v4h4"/></svg></div>
-        <div class="txt"><b>شارژ دوباره‌ی همه</b><span>همه برمی‌گردن به سهم هفتگی‌شون</span></div>
-        <button class="btn" data-bulk="refill">انجام</button>
       </div>
     </div>
 
@@ -503,21 +798,12 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 18a5 5 0 1 1 .9-9.9A6 6 0 0 1 19 10a4 4 0 0 1-1 7.9z"/></svg></div>
         <div class="txt"><b>دسترسی از بیرون خونه</b><span id="remoteHint"></span></div>
         <button class="btn" id="srvForget" type="button" hidden>خروج</button>
+        <span class="ck" id="remoteCk"></span>
       </div>
-      <div class="act">
+<div class="act">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <div class="txt"><b>تنظیم ساعت از اینترنت</b><span>ساعت دستگاه با ساعت دقیق یکی می‌شه</span></div>
         <button class="btn" data-action="sync-clock">انجام</button>
-      </div>
-      <div class="act">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 12-9"/></svg></div>
-        <div class="txt"><b>فرستادن وضعیت به تلگرام</b><span>پیام سلامت دستگاه، مثل ۴ بار زدن دکمه</span><span id="tgState" style="display:block" hidden></span></div>
-        <button class="btn" data-action="telegram">بفرست</button>
-      </div>
-      <div class="act">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
-        <div class="txt"><b>فرستادن گزارش شستشو از نو</b><span>اگه پیام گزارش توی تلگرام پاک شده، یه گزارش تازه می‌فرسته</span></div>
-        <button class="btn" data-action="new-report">بفرست</button>
       </div>
       <div class="act">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
@@ -530,15 +816,12 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
         <button class="btn danger" data-action="restart" id="restartBtn">ری‌استارت</button>
       </div>
       <div class="act">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
-        <div class="txt"><b>سنسور جریان</b><span id="curHint"></span></div>
-        <div class="num" id="curVal" style="font-weight:800;font-size:18px"></div>
-      </div>
-      <div class="act">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></div>
         <div class="txt"><b>برنامه‌ی دستگاه</b><span id="verHint"></span></div>
+        <span class="ck" id="verCk"></span>
       </div>
     </div>
+
   </section>
 
   <!-- ===== Log page ===== -->
@@ -561,8 +844,8 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 
 <nav class="tabs" aria-label="بخش‌ها">
   <button data-tab="home" aria-current="page">
-    <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="3"/><circle cx="12" cy="14" r="4.5"/><line x1="4" y1="7" x2="20" y2="7"/></svg></span>
-    وضعیت
+    <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg></span>
+    داشبورد
   </button>
   <button data-tab="cards">
     <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M6 10h5M6 14h3"/><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5M18 8a6 6 0 0 1 0 8"/></svg></span>
@@ -572,7 +855,12 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
     <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
     گزارش
   </button>
+  <button data-tab="settings">
+    <span class="i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg></span>
+    تنظیمات
+  </button>
 </nav>
+<div class="demobar" id="demoBar" hidden></div>
 
 <!-- ============ SHEET (one sheet, several views) ============ -->
 <div class="scrim" id="scrim"></div>
@@ -606,7 +894,7 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 
     <div class="block" id="rulesBlock">
       <div class="lbl">روزهای مجاز</div>
-      <div class="hint" id="daysHint">روزی که سبزه، این کارت می‌تونه بشوره.</div>
+      <div class="hint" id="daysHint">روزهای نارنجی، روزهایی هستن که این کارت می‌تونه بشوره.</div>
       <div class="days" id="days"></div>
       <label class="switch" style="margin-top:4px"><span class="sw-txt"><b>ساعت سکوت رعایت بشه</b><br><span style="font-size:12px;color:var(--fg2)" id="quietHint"></span></span><input type="checkbox" id="cQuiet"></label>
       <button class="btn primary wide" id="rSave" disabled>ذخیره‌ی قوانین</button>
@@ -700,8 +988,8 @@ main { padding-block: 0 calc(96px + env(safe-area-inset-bottom, 0px)); }
 // ===================================================================
 // Settings
 // ===================================================================
-const DEMO = false;          // false = talk to the real ESP32
-const REMOTE = true;        // v6.9: true only in the GitHub copy (access from outside home)
+const DEMO = false;           // false = talk to the real ESP32
+const REMOTE = true;       // v6.9: true only in the GitHub copy (access from outside home)
 const MQ = { url: "wss://gf7d975d.ala.eu-central-1.emqxsl.com:8084/mqtt", user: "Ben", base: "timbertree/laundry" };
 const POLL_MS = REMOTE ? 5000 : 3000;   // status refresh while the page is open
 const TYPICAL_WASH_MIN = 75;// only for the ring around the drum
@@ -800,7 +1088,7 @@ const T_EXACT = {
   "بیشتر از سهم هفتگی. دوشنبه ساعت ۰۰:۰۱ دوباره به سهم معمول برمی‌گرده": "More than the weekly allowance. Goes back to normal on Monday at 00:01",
   "ذخیره": "Save",
   "روزهای مجاز": "Allowed days",
-  "روزی که سبزه، این کارت می‌تونه بشوره": "Green days are the days this card can wash",
+  "روزهای نارنجی، روزهایی هستن که این کارت می‌تونه بشوره": "Orange days are the days this card can wash",
   "ساعت سکوت رعایت بشه": "Follow quiet hours",
   "ذخیره‌ی قوانین": "Save rules",
   "اجازه‌ی موقت": "Temporary permission",
@@ -947,6 +1235,26 @@ const T_WORDS = [
   ["٫", "."]
 ];
 
+Object.assign(T_EXACT, {
+  "داشبورد": "Dashboard", "تنظیمات": "Settings", "ساعت واقعی": "Real time", "ساعت دستگاه": "Device clock",
+  "وضعیت ماشین": "Machine", "ماشین خاموشه": "Machine is off", "ماشین روشنه": "Machine is on", "آماده‌ی شستشو": "Ready to wash",
+  "منتظر شروع": "Waiting to start", "منتظر": "Waiting", "دکمه‌ی ماشین": "machine button", "آزاد": "Free", "زمان گذشته": "elapsed",
+  "پیام سلامت دستگاه": "Device health message", "وضعیت به تلگرام": "Status to Telegram", "گزارش تازه": "New report", "از نو بفرست": "Send again",
+  "وضعیت دستگاه": "Device status", "همه سالمه": "All good", "جریان ماشین": "Machine current", "زنده": "Live",
+  "کمترین": "Min", "بیشترین": "Max", "میانگین": "Average", "مدت (دقیقه)": "Minutes", "الان": "now", "آخرین شستشو": "Last wash",
+  "شستشوی قبلی": "Previous wash", "آخرین شستشوها": "Recent washes", "همه ›": "All ›", "هنوز شستشویی ثبت نشده": "No wash yet",
+  "امروز": "Today", "دیروز": "Yesterday", "وای‌فای": "Wi-Fi", "کارت‌خوان": "Card reader", "صفحه (LCD)": "Screen (LCD)",
+  "سنسور جریان": "Current sensor", "دسترسی بیرون": "Outside access", "تلگرام": "Telegram", "روشن از": "On for",
+  "سیگنال خوب": "Good signal", "سیگنال متوسط": "Fair signal", "سیگنال ضعیف": "Weak signal", "بدون خطا": "No errors", "سالم": "OK", "قطع": "Disconnected",
+  "چک روشنه": "Check on", "چک خاموشه": "Check off", "هر ۱۰ ثانیه چک می‌شه": "Checked every 10 s", "توی تنظیمات روشنش کن": "Turn it on in Settings",
+  "وصله": "Connected", "در حال وصل شدن": "Connecting", "خاموشه": "Off", "به سرور": "to the server", "از هر جا می‌شه باز کرد": "Open from anywhere",
+  "از آخرین ری‌استارت": "since last restart", "عدد زنده": "live value", "آخرین عدد": "last value", "هنوز خونده نشده": "not read yet",
+  "با ساعت واقعی یکیه": "Matches real time", "با ساعت واقعی فرق دارد": "Differs from real time", "ساعت تنظیم نیست": "Clock not set", "با اینترنت تنظیمش کن": "Set it from the internet",
+  "اختلاف دارد": "Mismatch", "هنوز نه": "Not yet", "نشد": "Failed", "آخرین پیام رفت": "Last message sent", "این نسخه خبر نمی‌ده": "Not reported",
+  "دیدن حالت‌های مختلف": "Try other states", "نمونه": "Demo", "ماشین": "Machine", "روشن": "On", "خاموش": "Off", "ارتباط با دستگاه": "Device link", "وصل": "Connected",
+  "درسته": "Correct", "در حال وصل": "Connecting", "همه ›": "All ›"
+});
+
 function trText(s) {
   const lead = s.match(/^\s*/)[0], tail = s.match(/\s*$/)[0];
   let t = s.trim();
@@ -989,8 +1297,8 @@ if (EN) {
 
 const NAMES = EN ? { "FLAT": "Flat", "ROOM 1": "Room 1", "ROOM 2": "Room 2", "ROOM 3": "Room 3", "ROOM 4": "Room 4", "MASTER": "Master card" }
                  : { "FLAT": "فلت", "ROOM 1": "اتاق ۱", "ROOM 2": "اتاق ۲", "ROOM 3": "اتاق ۳", "ROOM 4": "اتاق ۴", "MASTER": "کارت مدیر" };
-const SHORT = EN ? { "FLAT": "F", "ROOM 1": "1", "ROOM 2": "2", "ROOM 3": "3", "ROOM 4": "4", "MASTER": "M" }
-                 : { "FLAT": "ف", "ROOM 1": "۱", "ROOM 2": "۲", "ROOM 3": "۳", "ROOM 4": "۴", "MASTER": "م" };
+const SHORT = EN ? { "FLAT": "Flat", "ROOM 1": "1", "ROOM 2": "2", "ROOM 3": "3", "ROOM 4": "4", "MASTER": "Ben" }
+                 : { "FLAT": "فلت", "ROOM 1": "۱", "ROOM 2": "۲", "ROOM 3": "۳", "ROOM 4": "۴", "MASTER": "بن" };
 
 // ===================================================================
 // Helpers
@@ -1047,6 +1355,7 @@ $("toastUndo").onclick = () => { const f = undoFn; undoFn = null; $("toast").cla
 // ===================================================================
 let PIN = "";
 
+const demoOpt = { skew: false, offline: false, remote: 'on' };
 const demo = (() => {
   const t0 = nowSec();
   let pin = "1234";
@@ -1061,7 +1370,7 @@ const demo = (() => {
     { id: 2, label: "ROOM 2", name: "سارا", uid: "53:83:00:03", credit: 0,   weekly: 3,   enabled: true, days: ROOM_DAYS.slice(), quiet: true, except: noEx() },
     { id: 3, label: "ROOM 3", name: "",     uid: "06:60:8A:8E", credit: 3,   weekly: 3,   enabled: true, days: ROOM_DAYS.slice(), quiet: true, except: noEx() },
     { id: 4, label: "ROOM 4", name: "علی",  uid: "12:00:02:03", credit: 1,   weekly: 3,   enabled: true, days: ROOM_DAYS.slice(), quiet: true, except: noEx() },
-    { id: 5, label: "MASTER", name: "",     uid: "32:A3:EF:03", credit: 100, weekly: 100, enabled: true, days: ALL.slice(), quiet: false, except: noEx() }
+    { id: 5, label: "MASTER", name: "بنیامین",     uid: "32:A3:EF:03", credit: 100, weekly: 100, enabled: true, days: ALL.slice(), quiet: false, except: noEx() }
   ];
   const log = [];
   const today = Math.floor(t0 / 86400) * 86400;
@@ -1083,10 +1392,11 @@ const demo = (() => {
     async pin(p) { return p === pin; },
     async pinChange(o, n) { await wait(250); if (o !== pin) return false; pin = n; return true; },
     async status() {
+      if (demoOpt.offline) throw new Error('offline');
       return { machine: running ? "running" : "idle", card: running ? running.id : -1,
                elapsed: running ? nowSec() - running.since : 0, lastEnd: log.reduce((a, w) => Math.max(a, w.end), 0),
-               reader: "ok", clockOk: true, clock: nowSec(), rssi: -62, version: "7.0", ota: true, wifiWash, lcdCheck, diag, remote: "on",
-               current: running ? 412 : 6, startAt: 50, finishAt: 20,
+               reader: "ok", clockOk: true, clock: nowSec() + (demoOpt.skew ? 420 : 0), rssi: -62, version: "7.1", ota: true, wifiWash, lcdCheck, diag, remote: demoOpt.remote, tgOk: 180, tgFail: -1, tgCode: 0, tgWait: false, lcdOk: true,
+               current: running ? Math.round(385 + Math.random() * 60) : 6, startAt: 50, finishAt: 20,
                uptime: 64980 + (nowSec() - t0), nextRefill: nextMonday() };
     },
     async cards() { const t = nowSec(); cards.forEach(c => { if (c.except.until && c.except.until <= t) c.except = noEx(); }); return cards.map(c => ({ ...c, days: c.days.slice(), except: { ...c.except }, used: used(c.id) })); },
@@ -1326,6 +1636,10 @@ function canNow(c) {
 }
 function untilText(t) { return dayDate(t) + " ساعت " + hm(t); }
 
+const DROP_PATH = "M12 2C12 2 4 12 4 18a8 8 0 0 0 16 0C20 12 12 2 12 2Z";
+const DROP_ON  = `<svg class="dr on" viewBox="0 0 24 30"><path d="${DROP_PATH}" fill="url(#dg)"/><path d="M8.5 17.5a4 4 0 0 0 2.6 3.7" stroke="rgba(255,255,255,.65)" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>`;
+const DROP_X   = `<svg class="dr ex" viewBox="0 0 24 30"><path d="${DROP_PATH}" fill="url(#dgx)"/><path d="M8.5 17.5a4 4 0 0 0 2.6 3.7" stroke="rgba(255,255,255,.7)" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>`;
+const DROP_OFF = `<svg class="dr off" viewBox="0 0 24 30"><path d="${DROP_PATH}" fill="none" stroke="#364050" stroke-width="1.6" stroke-dasharray="2.5 3"/></svg>`;
 function cardRow(c) {
   const isNow = running() && S.status.card === c.id;
   let meta = "این هفته " + fa(c.used) + " بار شسته";
@@ -1338,11 +1652,11 @@ function cardRow(c) {
   let pips = "";
   if (c.weekly <= 12) {
     const total = Math.max(c.weekly, c.credit);
-    for (let i = 0; i < total; i++) pips += i < c.credit ? (i >= c.weekly ? '<b class="extra"></b>' : "<b></b>") : '<b class="used"></b>';
-    pips = `<div class="pips" aria-hidden="true">${pips}</div>`;
+    for (let i = 0; i < total; i++) pips += i < c.credit ? (i >= c.weekly ? DROP_X : DROP_ON) : DROP_OFF;
+    pips = `<div class="drops" aria-hidden="true">${pips}</div>`;
   }
   return `<button class="row ${c.enabled ? "" : "off"} ${isNow ? "now" : ""}" data-card="${c.id}" style="${kc(c)}">
-    <div class="badge">${SHORT[c.label] || "؟"}</div>
+    <div class="badge ${(SHORT[c.label] || "").length > 1 ? "w" : ""}">${SHORT[c.label] || "؟"}</div>
     <div style="min-width:0"><div class="name">${nm(c)}${c.name ? `<small>${esc(c.name)}</small>` : ""}</div><div class="meta">${meta}</div>${pips}</div>
     <div class="left ${cls}"><div class="n num">${fa(c.credit)}</div><div class="t">از ${fa(c.weekly)}</div></div>
     <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 6-6 6 6 6"/></svg></button>`;
@@ -1358,33 +1672,26 @@ const ICONS = {
 function renderStatus() {
   const s = S.status; if (!s) return;
   const run = running();
+  S.fetchedAt = Date.now();
   $("today").textContent = dayDate(s.clock);
   $("band").classList.toggle("running", run);
   const armed = s.machine === "armed";
   $("mState").textContent = armed ? "منتظر شروع" : run ? "در حال شستشو" : "ماشین آزاده";
   const c = S.cards[s.card];
-  $("mWho").textContent = run ? (armed ? "کارت " : "با کارت ") + nm(c) + (c && c.name ? "، " + c.name : "") + (armed ? " · دکمه‌ی شروع ماشین رو بزنن" : "")
-                              : (s.lastEnd ? "آخرین شستشو " + span(Math.max(60, s.clock - s.lastEnd)) + " پیش تموم شد" : "");
-  $("mTimer").hidden = !run || armed;
-  drawTimer();
+  $("mWho").textContent = run ? (armed ? "کارت " : "با کارت ") + nm(c) + (c && c.name ? "، " + c.name : "") + (armed ? " · دکمه‌ی شروع ماشین رو بزنن" : "") : "آماده‌ی شستشو";
+  $("mPill").className = "mpill" + (run ? " on" : "");
+  $("mPillT").textContent = armed ? "منتظر شروع" : run ? "ماشین روشنه" : "ماشین خاموشه";
+  feedCur(s); drawTimer(); drawCur(); drawLast(); beat();
 
-  const sig = s.rssi > -67 ? "خوب" : s.rssi > -78 ? "متوسط" : "ضعیف";
-  const item = (icon, k, v, cls) => `<div class="hl ${cls}"><div class="ic">${ICONS[icon]}</div><div class="k">${k}</div><div class="v">${v}</div></div>`;
-  $("health").innerHTML =
-    item("power", "روشن از", span(s.uptime) + " پیش", "") +
-    item("reader", "کارت‌خوان", s.reader === "ok" ? "سالم" : "قطع", s.reader === "ok" ? "" : "bad") +
-    item("clock", "ساعت", s.clockOk ? hm(s.clock) : "تنظیم نیست", s.clockOk ? "" : "warn") +
-    item("wifi", "وای‌فای", sig, s.rssi > -78 ? "" : "warn");
+  renderTiles(s, run);
 
   $("refillIn").textContent = "شارژ بعدی: " + span(s.nextRefill) + " دیگه";
   $("restartBtn").disabled = run;
   $("restartHint").textContent = run ? "ماشین روشنه، بعد از شستشو" : "فقط وقتی ماشین خاموشه";
-  const cur = s.current === undefined ? -1 : s.current;
-  $("curVal").textContent = cur < 0 ? "—" : fa(cur);
-  $("curHint").textContent = (run ? "الان، موقع شستشو" : "آخرین عدد شستشوی قبلی") +
-    " · شروع بالای " + fa(s.startAt ?? 50) + "، پایان زیر " + fa(s.finishAt ?? 20);
   $("verHint").textContent = "نسخه‌ی " + (EN ? String(s.version || "7.0") : String(s.version || "7.0").replace(/\d/g, d => fa(d)).replace(/\./g, "٫")) + " · " +
     (s.ota ? "آپلود بی‌سیم آماده‌ست" : "آپلود بی‌سیم خاموشه (پارتیشن)");
+  setCk("verCk", "ok");
+  setCk("remoteCk", s.remote === "on" ? "ok" : s.remote === "wait" ? "warn" : "bad");
   $("live").classList.remove("off"); $("live").querySelector("span").textContent = "وصل";
   $("offline").hidden = true;
   // v6.9
@@ -1407,12 +1714,10 @@ function renderStatus() {
       const why = code === 0 ? (EN ? "washer busy or no Wi-Fi" : "ماشین مشغول بود یا وای‌فای نبود")
                              : (EN ? "code " + code : "کد " + fa(code));
       let t;
-      if (ok < 0 && bad < 0) t = EN ? "Telegram: nothing sent since the restart" : "تلگرام: از ری‌استارت تا حالا پیامی نرفته";
-      else if (bad >= 0 && (ok < 0 || bad < ok)) t = (EN ? "Telegram: last try failed (" : "تلگرام: آخرین تلاش نشد (") + why + (EN ? "), " : ")، ") + ago(bad) +
-                                                     (EN ? " · trying again" : " · دوباره امتحان می‌کنه");
-      else t = (EN ? "Telegram: last message sent " : "تلگرام: آخرین پیام رفت، ") + ago(ok);
-      if (s.tgWait) t += run ? (EN ? " · status waits for the washer to be free" : " · وضعیت منتظر آزاد شدن ماشینه")
-                             : (EN ? " · sending status…" : " · وضعیت داره فرستاده می‌شه…");
+      if (ok < 0 && bad < 0) t = EN ? "nothing sent since the restart" : "از ری‌استارت پیامی نرفته";
+      else if (bad >= 0 && (ok < 0 || bad < ok)) t = (EN ? "last try failed, " : "آخرین تلاش نشد، ") + ago(bad);
+      else t = (EN ? "last message " : "آخرین پیام ") + ago(ok);
+      if (s.tgWait) t = run ? (EN ? "waits for the washer to be free" : "منتظر آزاد شدن ماشینه") : (EN ? "sending…" : "داره فرستاده می‌شه…");
       tgEl.textContent = t;
     }
   }
@@ -1434,12 +1739,30 @@ function showOffline() {
   $("offline").hidden = false;
 }
 
+const CIRC = 2 * Math.PI * 58;
+function mmss(s) { s = Math.max(0, Math.floor(s)); return pad2(Math.floor(s / 60) % 60) + ":" + pad2(s % 60); }
+// Typical wash is 75 min. If it runs longer the estimate steps to 100, then 120, 140 ...
+function estMin(elapsed) { let e = 75; while (elapsed > e * 60) e = e === 75 ? 100 : e + 20; return e; }
 function drawTimer() {
   const s = S.status; if (!s) return;
-  const run = running();
-  if (run && s.machine === "running") $("mTimer").innerHTML = hms(s.elapsed) + ' <small>گذشته</small>';
-  const frac = run ? Math.min(1, s.elapsed / (TYPICAL_WASH_MIN * 60)) : 0;
-  $("arc").style.strokeDashoffset = 264 * (1 - frac);
+  const run = running(), armed = s.machine === "armed", live = run && !armed;
+  const est = live ? estMin(s.elapsed) : 75;
+  const frac = live ? Math.min(1, s.elapsed / (est * 60)) : 0;
+  $("arc").style.strokeDasharray = (frac * 264.3) + " 396";
+  $("arc").style.opacity = frac > 0 ? 1 : 0;
+  $("estEnd").textContent = fa(est) + (live ? "" : "+");
+  const n = Math.round(frac * 72);
+  [...$("ticks").children].forEach((l, i) => l.classList.toggle("on", i < n));
+  const segOn = Math.round(frac * 12);
+  [...$("segs").children].forEach((l, i) => l.classList.toggle("on", i < segOn));
+  $("liq").style.transform = "translateY(" + (live ? 130 - frac * 98 : 140) + "px)";
+  const over = live && s.elapsed > 75 * 60;
+  if (live) { $("mTimer").textContent = s.elapsed >= 3600 ? hms(s.elapsed) : mmss(s.elapsed); $("mTimerK").textContent = over ? "بیشتر از معمول" : "زمان گذشته"; }
+  else if (armed) { $("mTimer").textContent = "منتظر"; $("mTimerK").textContent = "دکمه‌ی ماشین"; }
+  else { $("mTimer").textContent = "آزاد"; $("mTimerK").textContent = "ماشین خاموشه"; }
+  $("mPct").textContent = live ? fa(Math.round(frac * 100)) + "٪" : ""; $("mPct").hidden = !live;
+  $("hchips").hidden = !live;
+  if (live) $("hchips").innerHTML = `<span>شروع <b>${hm(s.clock - s.elapsed)}</b></span><span>تخمین <b>${fa(est)}</b> دقیقه</span>`;
 }
 
 function renderWeek() {
@@ -1492,7 +1815,7 @@ function renderLog() {
   const max = Math.max(2, ...per);
   $("bars").innerHTML = per.map((n, i) => {
     const day = firstDay + i, future = day > todayDay;
-    return `<div class="b ${n ? "" : "zero"} ${day === todayDay ? "today" : ""}" style="height:${future ? 0 : Math.max(3, n / max * 96)}px" title="${shortDate(day * 86400)}: ${fa(n)}"></div>`;
+    return `<div class="b ${n ? "" : "zero"} ${day === todayDay ? "today" : ""}" style="height:${future ? 0 : Math.max(3, n / max * 96)}px" title="${shortDate(day * 86400)}: ${fa(n)}">${n && !future ? `<i>${fa(n)}</i>` : ""}</div>`;
   }).join("");
   $("axis").innerHTML = per.map((_, i) => {
     const day = firstDay + i;
@@ -1527,7 +1850,7 @@ async function refresh(withLog) {
     S.status = st; S.cards = cs;
     if (!S.rules || withLog) S.rules = await api.rules();
     if (withLog || !S.log.length) S.log = await api.log();
-    renderStatus(); renderRules(); renderCards(); renderLog();
+    renderStatus(); renderRules(); renderCards(); renderLog(); drawRecent();
     if (view === "card") fillCard(false);
   } catch (e) {
     // v6.9: GitHub copy shows the last snapshot (read only) when the device is not connected
@@ -1544,12 +1867,172 @@ async function refresh(withLog) {
 setInterval(() => { if (S.status && S.status.machine === "running") { S.status.elapsed++; drawTimer(); } }, 1000);
 
 // ===================================================================
+// v8: dashboard extras (tiles, live current graph, clocks, heartbeat)
+// ===================================================================
+(function initDial() {
+  let t = "";
+  for (let i = 0; i < 72; i++) {
+    const a = -Math.PI / 2 + i * Math.PI / 36, m = i % 6 === 0, r1 = 73, r2 = m ? 64 : 67;
+    t += `<line class="${m ? "m" : ""}" x1="${(80 + r1 * Math.cos(a)).toFixed(1)}" y1="${(80 + r1 * Math.sin(a)).toFixed(1)}" x2="${(80 + r2 * Math.cos(a)).toFixed(1)}" y2="${(80 + r2 * Math.sin(a)).toFixed(1)}"/>`;
+  }
+  $("ticks").innerHTML = t;
+  $("segs").innerHTML = "<i></i>".repeat(12);
+})();
+
+const CKI = {
+  ok:   '<svg viewBox="0 0 24 24" fill="none" stroke="#1a0f00" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  warn: '<svg viewBox="0 0 24 24" fill="none" stroke="#1a0f00" stroke-width="3.4" stroke-linecap="round"><path d="M12 5.5v8M12 18.2v.3"/></svg>',
+  bad:  '<svg viewBox="0 0 24 24" fill="none" stroke="#1a0f00" stroke-width="3.4" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg>'
+};
+const ckHtml = st => `<span class="ck ${st === "ok" ? "" : st}">${CKI[st]}</span>`;
+function setCk(id, st) { const el = $(id); if (!el) return; el.className = "ck " + (st === "ok" ? "" : st); el.innerHTML = CKI[st]; }
+function beat() { const l = $("live"); l.classList.add("beat"); setTimeout(() => l.classList.remove("beat"), 450); }
+
+// UK wall-clock "now" (same convention the device uses: UK local time read as UTC)
+function ukNow() {
+  try {
+    const p = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/London", hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" }).formatToParts(new Date());
+    const g = t => +p.find(x => x.type === t).value;
+    return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"), g("second")) / 1000;
+  } catch { return nowSec(); }
+}
+const devClockNow = () => S.status ? S.status.clock + (Date.now() - (S.fetchedAt || Date.now())) / 1000 : 0;
+const clockSkew = () => S.status && S.status.clockOk ? devClockNow() - ukNow() : 0;
+function tickClocks() {
+  $("realClock").textContent = hms(ukNow() % 86400);
+  const s = S.status; if (!s) return;
+  const ok = s.clockOk, sk = Math.abs(clockSkew()), bad = ok && sk > 120;
+  const txt = ok ? hms(Math.floor(devClockNow()) % 86400) : "تنظیم نیست";
+  $("devClock").textContent = txt;
+  $("hero").classList.toggle("skew", bad || !ok);
+  $("clockWarn").hidden = !(bad || !ok);
+  if (bad) $("clockWarn").textContent = "اختلاف " + fa(Math.max(1, Math.round(sk / 60))) + " دقیقه";
+  if (!ok) $("clockWarn").textContent = "ساعت تنظیم نیست";
+  const t = $("tClock"); if (t) { t.textContent = txt; $("tClockSb").textContent = !ok ? "با اینترنت تنظیمش کن" : bad ? "با ساعت واقعی فرق دارد" : "با ساعت واقعی یکیه"; setCk("tClockCk", !ok ? "bad" : bad ? "warn" : "ok"); }
+}
+setInterval(tickClocks, 1000);
+
+function upText(sec) {
+  const h = Math.floor(sec / 3600), d = Math.floor(h / 24);
+  return d >= 1 ? "برای " + fa(d) + " روز" : h >= 1 ? "برای " + fa(h) + " ساعت" : "کمتر از یک ساعت";
+}
+function renderTiles(s, run) {
+  const sig = s.rssi > -67 ? "سیگنال خوب" : s.rssi > -78 ? "سیگنال متوسط" : "سیگنال ضعیف";
+  const wifiSt = s.rssi > -67 ? "ok" : s.rssi > -78 ? "warn" : "bad";
+  const ago = x => x < 60 ? "همین الان" : span(x) + " پیش";
+  const tok = s.tgOk, tbad = s.tgFail ?? -1;
+  let tg;
+  if (tok === undefined) tg = ["—", "این نسخه خبر نمی‌ده", "warn"];
+  else if (tok < 0 && tbad < 0) tg = ["هنوز نه", "از ری‌استارت پیامی نرفته", "warn"];
+  else if (tbad >= 0 && (tok < 0 || tbad < tok)) tg = ["نشد", "آخرین تلاش " + ago(tbad), "warn"];
+  else tg = [ago(tok), "آخرین پیام رفت", "ok"];
+  const cur = s.current === undefined ? -1 : s.current;
+  const lc = s.lcdCheck !== false;
+  const remote = s.remote === "on" ? ["وصله", "از هر جا می‌شه باز کرد", "ok"] : s.remote === "wait" ? ["در حال وصل شدن", "به سرور", "warn"] : ["خاموشه", "رمز سرور توی دستگاه نیست", "bad"];
+  const items = [
+    ["وای‌فای", `<span class="mono">${fa(s.rssi)} dBm</span>`, sig, wifiSt],
+    ["ساعت دستگاه", `<span class="mono" id="tClock">--:--:--</span>`, `<span id="tClockSb"></span>`, !s.clockOk ? "bad" : Math.abs(clockSkew()) > 120 ? "warn" : "ok", "tClockCk"],
+    ["کارت‌خوان", s.reader === "ok" ? "سالم" : "قطع", s.reader === "ok" ? "بدون خطا" : "کارت‌ها خونده نمی‌شن", s.reader === "ok" ? "ok" : "bad"],
+    (s.lcdOk === true && lc) ? ["صفحه (LCD)", "LCD سالم", "روشنه", "ok"] : (s.lcdOk === false) ? ["صفحه (LCD)", "LCD مشکل داره", "جواب نمی‌ده", "bad"] : ["صفحه (LCD)", lc ? "چک روشنه" : "چک خاموشه", lc ? "هر ۱۰ ثانیه چک می‌شه" : "توی تنظیمات روشنش کن", lc ? "ok" : "warn"],
+    ["سنسور جریان", cur < 0 ? "—" : `<span class="mono">${fa(cur)}</span>`, cur < 0 ? "هنوز خونده نشده" : run ? "عدد زنده" : "آخرین عدد", cur < 0 ? "warn" : "ok"],
+    ["دسترسی بیرون", remote[0], remote[1], remote[2]],
+    ["تلگرام", tg[0], tg[1], tg[2]],
+    ["وضعیت دستگاه", "روشن بوده", upText(s.uptime), "ok"]
+  ];
+  $("health").innerHTML = items.map(([k, v, sb, st, id]) => `<div class="tl"><span class="ck ${st === "ok" ? "" : st}" ${id ? `id="${id}"` : ""}>${CKI[st]}</span><div class="k">${k}</div><div class="v">${v}</div><div class="sb">${sb}</div></div>`).join("");
+  const bad = items.filter(i => i[3] === "bad").length, warn = items.filter(i => i[3] === "warn").length;
+  const sum = $("healthSum");
+  sum.className = "summ " + (bad ? "bad" : warn ? "warn" : "ok");
+  sum.textContent = bad ? fa(bad) + " مورد خرابه" : warn ? fa(warn) + " مورد نیاز به توجه" : "همه سالمه";
+  tickClocks();
+}
+
+// ---- live current graph ----
+S.cur = []; S.curRun = false;
+function feedCur(s) {
+  const run = running() && s.machine === "running";
+  if (run && (s.current ?? -1) >= 0) {
+    if (!S.curRun) { S.cur = []; S.curRun = true; }
+    S.cur.push(s.current); if (S.cur.length > 40) S.cur.shift();
+  } else if (!running()) S.curRun = false;
+}
+function drawCur() {
+  const s = S.status; if (!s) return;
+  const run = running() && s.machine === "running";
+  const cur = s.current === undefined ? -1 : s.current;
+  const pts = S.cur.length > 1 ? S.cur.slice() : cur >= 0 ? [cur, cur] : [0, 0];
+  const mx = Math.max(...pts), ymax = Math.max(500, Math.ceil(mx / 100) * 100);
+  const L = 36, R = 296, T = 8, B = 118;
+  const X = i => L + i * (R - L) / (pts.length - 1), Y = v => B - (v / ymax) * (B - T);
+  let g = "";
+  for (let v = 0; v <= ymax; v += 100) { const y = Y(v); g += `<line x1="${L}" x2="${R}" y1="${y.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#1f2833" stroke-dasharray="3 4"/><text x="${L - 9}" y="${(y + 3).toFixed(1)}" text-anchor="end" fill="#6d7888" font-size="8.5" font-family="monospace">${fa(v)}</text>`; }
+  const xy = pts.map((v, i) => [X(i), Y(v)]);
+  const line = xy.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" ");
+  const area = `M${xy[0][0].toFixed(1)},${B} L` + xy.map(p => p[0].toFixed(1) + "," + p[1].toFixed(1)).join(" L") + ` L${xy[xy.length - 1][0].toFixed(1)},${B} Z`;
+  const step = pts.length > 20 ? 2 : 1;
+  const dots = xy.map((p, i) => i % step === 0 && i < xy.length - 1 && pts.length > 2 ? `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="2.2" fill="#0e1218" stroke="#ffb84d" stroke-width="1.4"/>` : "").join("");
+  const last = xy[xy.length - 1];
+  const dim = run ? "" : ' opacity=".45"';
+  $("curSvg").innerHTML = g + `<g${dim}><path d="${area}" fill="url(#ar)"/><polyline points="${line}" fill="none" stroke="#ffb84d" stroke-width="2.2" stroke-linejoin="round" style="filter:drop-shadow(0 0 5px rgba(255,154,31,.9))"/>${dots}<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="4.2" fill="#fff" style="filter:drop-shadow(0 0 8px #ff9a1f)"/></g>`;
+  $("curBig").textContent = cur < 0 ? "—" : fa(cur);
+  $("curLv").className = "lv" + (run ? "" : " idle");
+  $("curLv").querySelector("span").textContent = run ? "زنده" : "ماشین خاموشه";
+  $("axL").textContent = run ? fa(Math.round(pts.length * POLL_MS / 1000)) + " ثانیه پیش" : "آخرین شستشو";
+  $("axR").textContent = run ? "الان" : "";
+  const have = S.cur.length > 1;
+  const mn = have ? Math.min(...S.cur) : null, mxv = have ? Math.max(...S.cur) : null, avg = have ? Math.round(S.cur.reduce((a, b) => a + b, 0) / S.cur.length) : null;
+  const f = v => v === null ? "—" : fa(v);
+  $("curStats").innerHTML = `<div><span>کمترین</span><b>${f(mn)}</b></div><div class="hl2"><span>بیشترین</span><b>${f(mxv)}</b></div><div><span>میانگین</span><b>${f(avg)}</b></div><div><span>مدت (دقیقه)</span><b>${run ? fa(Math.round(s.elapsed / 60)) : "—"}</b></div>`;
+}
+
+// ---- last wash line + recent list ----
+function dayWord(t) {
+  const today = Math.floor(devNow() / 86400), d = Math.floor(t / 86400);
+  return d === today ? "امروز" : d === today - 1 ? "دیروز" : dayDate(t);
+}
+function drawLast() {
+  const el = $("lastWash"), w = [...S.log].sort((a, b) => b.end - a.end)[0];
+  if (!w) { el.innerHTML = "<span>هنوز شستشویی ثبت نشده</span>"; return; }
+  el.innerHTML = `<span>${running() ? "شستشوی قبلی" : "آخرین شستشو"}</span><span><b>${nm(S.cards[w.id])}</b> · ${dayWord(w.start)} <b class="mono" style="font-family:var(--mono)">${hm(w.start)}</b> · ${fa(Math.round(w.dur / 60))} دقیقه</span>`;
+}
+function drawRecent() {
+  const rows = [...S.log].sort((a, b) => b.start - a.start).slice(0, 4);
+  $("recentWash").innerHTML = rows.length ? rows.map(w => `<div class="wash"><div class="who">${nm(S.cards[w.id])}</div><div class="when"><bdi>${dayWord(w.start)}</bdi> · <bdi>${hm(w.start)}</bdi></div><div class="dur num">${fa(Math.round(w.dur / 60))} دقیقه</div></div>`).join("") : '<div class="empty">شستشویی ثبت نشده.</div>';
+}
+$("allWashes").addEventListener("click", e => { e.preventDefault(); document.querySelector('.tabs button[data-tab="log"]').click(); });
+
+// ---- demo helper (only in the sample page) ----
+if (DEMO) {
+  const bar = $("demoBar");
+  const drawBar = () => {
+    const run = S.status && S.status.machine !== "idle";
+    bar.innerHTML = `<b>دیدن حالت‌های مختلف</b>
+      <button data-k="m">ماشین <em>${run ? "روشن" : "خاموش"}</em></button>
+      <button data-k="s">ساعت دستگاه <em>${demoOpt.skew ? "اختلاف دارد" : "درسته"}</em></button>
+      <button data-k="r">دسترسی بیرون <em>${{ on: "وصله", wait: "در حال وصل", off: "خاموشه" }[demoOpt.remote]}</em></button>
+      <button data-k="o">ارتباط با دستگاه <em>${demoOpt.offline ? "قطع" : "وصل"}</em></button>`;
+  };
+  $("demoTag").onclick = () => { bar.hidden = !bar.hidden; if (!bar.hidden) drawBar(); };
+  bar.onclick = async e => {
+    const b = e.target.closest("button[data-k]"); if (!b) return;
+    const k = b.dataset.k;
+    if (k === "m") demo.toggleMachine();
+    if (k === "s") demoOpt.skew = !demoOpt.skew;
+    if (k === "r") demoOpt.remote = { on: "wait", wait: "off", off: "on" }[demoOpt.remote];
+    if (k === "o") demoOpt.offline = !demoOpt.offline;
+    await refresh(true); drawBar();
+  };
+}
+
+
+// ===================================================================
 // Tabs
 // ===================================================================
 document.querySelectorAll(".tabs button").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".tabs button").forEach(x => x.removeAttribute("aria-current"));
   b.setAttribute("aria-current", "page");
-  ["home", "cards", "log"].forEach(n => $("p-" + n).hidden = n !== b.dataset.tab);
+  ["home", "cards", "log", "settings"].forEach(n => $("p-" + n).hidden = n !== b.dataset.tab);
+  $("hero").hidden = b.dataset.tab !== "home";
   window.scrollTo(0, 0);
 }));
 $("filter").addEventListener("click", e => {
@@ -1596,7 +2079,7 @@ function openCard(id) {
 function fillCard(reset) {
   const c = S.cards[openId]; if (!c) return;
   if (reset) { cDraft = c.credit; wDraft = c.weekly; dDraft = c.days.slice(); qDraft = c.quiet; $("nameIn").value = c.name || ""; $("enSw").checked = c.enabled; }
-  $("sBadge").textContent = SHORT[c.label] || "؟";
+  $("sBadge").textContent = SHORT[c.label] || "؟"; $("sBadge").classList.toggle("w", (SHORT[c.label] || "").length > 1);
   $("sBadge").style.cssText = kc(c);
   $("rulesBlock").hidden = isMaster(c);
   drawRules();
@@ -1628,7 +2111,7 @@ function drawRules() {
   const r = S.rules || {};
   $("days").innerHTML = WEEK.map(([d, s1, full]) => `<button data-d="${d}" aria-pressed="${dDraft[d]}" aria-label="${full}">${s1}<small>${full}</small></button>`).join("");
   $("days").classList.toggle("dim", !r.daysOn);
-  $("daysHint").textContent = r.daysOn ? "روزی که سبزه، این کارت می‌تونه بشوره." : "محدودیت روزها الان برای همه خاموشه (بخش قوانین کلی).";
+  $("daysHint").textContent = r.daysOn ? "روزهای نارنجی، روزهایی هستن که این کارت می‌تونه بشوره." : "محدودیت روزها الان برای همه خاموشه (بخش قوانین کلی).";
   $("cQuiet").checked = qDraft;
   $("quietHint").textContent = r.quietOn ? "از " + hh(r.quietFrom) + " تا " + hh(r.quietTo) + " شستشوی جدید نه" : "ساعت سکوت الان برای همه خاموشه";
   $("rSave").disabled = qDraft === c.quiet && dDraft.every((v, i) => v === c.days[i]);
